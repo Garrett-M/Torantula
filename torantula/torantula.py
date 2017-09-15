@@ -211,6 +211,7 @@ class TorLauncher(Thread):
     def run(self):
         """ Launches a new Tor Process. Adds it to process_dict with its key as the port it runs on """
 
+        global _fatal_error_received
         try:
             self.tor_process = TorProcess(self.socks_port,
                                           self.control_port,
@@ -223,6 +224,9 @@ class TorLauncher(Thread):
                 self.tor_process.connect_to_controller()
 
             self.process_dict[self.socks_port] = self.tor_process
+        except FileNotFoundError:
+            _fatal_error_received = True
+            logger.error("Failed to launch Tor. Is it installed?")
         except socket.error as ex:
             raise ex
         except:
