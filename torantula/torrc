@@ -1,0 +1,3 @@
+MaxClientCircuitsPending 1024
+
+# Defaults fine for everything else
