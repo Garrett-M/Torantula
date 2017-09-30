@@ -1,6 +1,10 @@
 # Torantula
 
-Torantula is a tool for isolating streams with Tor.
+## Description
+
+Torantula is a tool for isolating streams with Tor. It allows the user to configure how streams are
+isolated to improve performance and/or security. You can read more about it here:
+http://garrettmarconet.blogspot.com/2017/09/tuning-tor-for-performance.html
 
 ## Requirements
 
